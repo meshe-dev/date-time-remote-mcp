@@ -6,12 +6,12 @@ A remote [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server
 
 ### `get_current_datetime_pdt`
 
-Returns the current date and time formatted as `YYYY-MM-DD HH:MM:SS PDT`.
+Returns the current date and time formatted as `DayOfWeek Month DD, YYYY HH:MMam/pm PDT`.
 
 **Example response:**
 
 ```
-2026-04-04 17:55:50 PDT
+Saturday April 04, 2026 06:11pm PDT
 ```
 
 ## Quick Start

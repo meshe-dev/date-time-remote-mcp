@@ -11,7 +11,7 @@ PDT = timezone(timedelta(hours=-7))
 def get_current_datetime_pdt() -> str:
     """Returns the current date and time in PDT (Pacific Daylight Time)."""
     now = datetime.now(PDT)
-    return now.strftime("%Y-%m-%d %H:%M:%S PDT")
+    return now.strftime("%A %B %d, %Y %I:%M%p PDT").replace("AM", "am").replace("PM", "pm")
 
 
 if __name__ == "__main__":
