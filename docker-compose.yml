@@ -4,3 +4,11 @@ services:
     ports:
       - "8222:8000"
     restart: unless-stopped
+    networks:
+      - default
+      - nginx-proxy-manager
+
+networks:
+  nginx-proxy-manager:
+    external: true
+    name: nginx-proxy-manager_nginx-proxy-manager
