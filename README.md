@@ -90,6 +90,10 @@ curl -X POST http://localhost:8222/mcp \
   -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}'
 ```
 
+## Project record
+
+Start at [docs/Home.md](docs/Home.md) for the record: the decision log (D / F / P / O), explorations, and the working agreement.
+
 ## Project Structure
 
 ```
