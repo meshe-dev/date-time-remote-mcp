@@ -1,12 +1,12 @@
 # DateTime PDT - Remote MCP Server
 
-A remote [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that returns the current date and time in Pacific Daylight Time (PDT). No authentication required.
+A remote [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that returns the current date and time in Pacific time (`America/Vancouver`) with the zone's live IANA abbreviation (`PDT`/`PST`, or `MST` under BC's permanent UTC-7). No authentication required.
 
 ## Tool
 
 ### `get_current_datetime_pdt`
 
-Returns the current date and time formatted as `DayOfWeek Month DD, YYYY HH:MMam/pm PDT`.
+Returns the current date and time in Pacific time (`America/Vancouver`), formatted as `DayOfWeek Month DD, YYYY HH:MMam/pm TZ`, where `TZ` is the zone's IANA abbreviation — `PDT`/`PST` historically, and `MST` (permanent UTC-7) from 2026-11-01 per BC's move to permanent daylight time.
 
 **Example response:**
 
@@ -80,7 +80,18 @@ http://localhost:8222/mcp
 
 ## Testing
 
-Verify the server is running with curl:
+Run the test suite with pytest in a virtualenv:
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt -r requirements-dev.txt
+.venv/bin/python -m pytest -q
+```
+
+`tests/unit/` covers the pure formatter against fixed datetimes (no clock);
+`tests/integration/` drives the FastMCP server in-process (no container, no network).
+
+Verify a running server with curl:
 
 ```bash
 # Initialize a session
@@ -98,8 +109,10 @@ Start at [docs/Home.md](docs/Home.md) for the record: the decision log (D / F / 
 
 ```
 .
-├── server.py            # MCP server with the datetime tool
-├── requirements.txt     # Python dependencies
+├── server.py            # MCP server + the pure formatter
+├── requirements.txt     # Runtime dependencies
+├── requirements-dev.txt # Test dependencies (pytest)
+├── tests/               # unit/ (formatter) + integration/ (FastMCP in-process)
 ├── Dockerfile           # Container image definition
 ├── docker-compose.yml   # Docker Compose configuration
 └── README.md
