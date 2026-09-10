@@ -16,7 +16,7 @@
 |---|---|---|
 | no arguments | OK | the formatted string |
 | `{}` | OK | the formatted string |
-| any unexpected argument | rejected by the MCP layer, never a 500 | validation error from FastMCP |
+| any unexpected argument | ignored by the MCP layer (FastMCP 1.x `extra=ignore`, D-007), never a 500 | the formatted string |
 
 ## 3. Definition of Done
 

@@ -17,6 +17,7 @@ source: decision-log.md
 | D-007 | 2026-09-09 16:40 PDT | claude | Two orchestrator amendments to the O-001 contract during the first swarm run: `requirements.txt` pins `mcp[cli]>=1.9.0,<2`, and Rejections row 3 reads "ignored by the MCP layer", not "rejected" |
 | D-008 | 2026-09-09 16:48 PDT | claude | The tool reports whatever abbreviation IANA gives `America/Vancouver`; from 2026-11-01 that is `MST`, and the contract's winter rows are amended accordingly |
 | D-009 | 2026-09-09 17:03 PDT | meshe | The abbreviation is whatever `ZoneInfo("America/Vancouver")` returns for the supplied datetime |
+| D-010 | 2026-09-10 12:40 PDT | meshe | This repo's swarm runs on the `swarm-core` plugin (swarm-core@0.1.1, swarm-builder D-007/D-008); the gate roles and playbooks are the plugin's, the project section in `docs/swarm.md` is what this repo owns |
 | F-004 | 2026-09-09 16:48 PDT | claude | IANA tzdata 2026b moves `America/Vancouver` to permanent UTC−7 labelled `MST` from 2026-11-01 02:00; both the host and the `python:3.13-slim` image carry it |
 | F-003 | 2026-09-09 16:40 PDT | claude | `mcp[cli]>=1.9.0` now resolves to mcp 2.2.0, which removes `mcp.server.fastmcp`; an unpinned rebuild of the image would crash at import |
 | F-001 | 2026-09-09 16:27 PDT | claude | The server hardcodes UTC−7 and the literal "PDT", so from November to March it reports Pacific *Daylight* time while the wall clock is Pacific *Standard* |
