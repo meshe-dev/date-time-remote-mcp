@@ -24,6 +24,8 @@ exception. You never deploy: every deploy here is HELD.
    reason (assertion or missing symbol, not a typo).
 6. **Dispatch GREEN**: `datetime-engineer` with contract + ownership + red-test paths + the
    docs it owns.
+**Unsatisfiable requirement = blocker (core C-9, meshe's ruling):** a contract row the environment contradicts is parked as `BLOCKED:` with evidence, options and a recommendation; everything that depends on it waits, everything else continues; the run finishes and reports the blocker first. Never amend the row, never choose, never write a D-entry (an O-row at most), never stop and wait for meshe.
+
 7. **Stuck-detector** per core C-4: three identical failures, zero progress → record, route
    around, surface to meshe.
 8. **Verify**: `swarm-verifier` with contract + affected-test paths. `VERDICT: FAIL` →

@@ -78,6 +78,10 @@ would — is the weekday right for the date, is the abbreviation right for today
 hour 12-hour with am/pm; call it around midnight and around a DST boundary by freezing the
 clock if the harness allows. Findings as pasted failing tests.
 
+### Blockers
+
+Core C-9 binds: an unsatisfiable requirement is parked, the rest of the run continues, the report leads with the blocker. The run never decides it (D-008 was the first-run violation; D-009 is meshe's actual ruling).
+
 ### Lanes
 
 - **Build** — `/swarm-build <plan-or-contract file>`. Interactive only; no watcher, no

@@ -31,6 +31,8 @@ Commit on green on a `fix/<n>` branch. Comment on the issue: root cause, files, 
 regression test, the commit SHA, the verifier's docker proof, and the exact commands for
 meshe to deploy on awarm. Label `needs-meshe-deploy`. Never run the deploy.
 
+**Unsatisfiable requirement = blocker (core C-9, meshe's ruling):** a contract row the environment contradicts is parked as `BLOCKED:` with evidence, options and a recommendation; everything that depends on it waits, everything else continues; the run finishes and reports the blocker first. Never amend the row, never choose, never write a D-entry (an O-row at most), never stop and wait for meshe.
+
 ## 5 — Escalate, don't loop
 Three identical failures with zero progress → `blocked` label, comment with attempts and
 hypotheses.
