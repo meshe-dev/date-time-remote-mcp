@@ -21,8 +21,9 @@ source: decision-log.md
 | F-003 | 2026-09-09 16:40 PDT | claude | `mcp[cli]>=1.9.0` now resolves to mcp 2.2.0, which removes `mcp.server.fastmcp`; an unpinned rebuild of the image would crash at import |
 | F-001 | 2026-09-09 16:27 PDT | claude | The server hardcodes UTC−7 and the literal "PDT", so from November to March it reports Pacific *Daylight* time while the wall clock is Pacific *Standard* |
 | F-002 | 2026-09-09 16:27 PDT | claude | Deploy and test surface as found: no tests, no CI, no deploy script; the production host and URL are not in the repo |
-| O-001 | 2026-09-09 16:27 PDT | gate: the first swarm run on this repo (swarm-builder T-6 step 4), deploy held for meshe | DST bug (F-001): the server reports PDT year-round |
-| O-002 | 2026-09-09 16:27 PDT | gate: meshe (or the vault's `Oracle services` note) — record the path and hostname here or there, no credentials | Production location not recorded: compose path on awarm, public hostname behind nginx-proxy-manager, and how the workstation's MCP client reaches it |
+| F-005 | 2026-09-09 17:10 PDT | joint | Deployed to awarm from `main` `7a5efad`; the live tool answers in the new format and the image carries tzdata 2026b |
+| O-001 | 2026-09-09 16:27 PDT | gate: **Closed 2026-09-09 17:10 PDT** — fixed in `c5501f6`, deployed by meshe (F-005) | ~~DST bug (F-001): the server reports PDT year-round |
+| O-002 | 2026-09-09 16:27 PDT | gate: **Closed 2026-09-09 17:10 PDT** — compose path `/home/ubuntu/date-time-remote-mcp` on awarm (F-005); hostname stays in the vault | ~~Production location not recorded: compose path on awarm, public hostname behind nginx-proxy-manager, and how the workstation's MCP client reaches it |
 | O-003 | 2026-09-09 16:27 PDT | gate: the swarm's test-writer under the contract for O-001 | No tests and no CI (F-002) |
 | O-004 | 2026-09-09 16:27 PDT | gate: meshe | Is this repo a dashboard KB source (`kb_*` MCP, wiki page)? Not asked at adoption; if yes, the log is reachable through `decision_get` once registered |
 | O-005 | 2026-09-09 16:33 PDT | gate: meshe | Ratify the swarm (D-006): roster, model assignment, the two test tiers, no headless lane, push/merge policy — or change any of it |
