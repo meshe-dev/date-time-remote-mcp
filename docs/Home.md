@@ -12,6 +12,11 @@ A remote MCP server with one tool, `get_current_datetime_pdt`, returning the cur
 ### Explorations (working docs — nothing decided until it's in the log)
 - (none yet — copy `explorations/00-template.md`, set `type: exploration`)
 
+### The swarm
+- [Swarm doctrine — project section](swarm.md) — roles, tiers, deploy classes (all HELD), checklists, lanes.
+- [Swarm core](swarm-core.md) — the embedded core doctrine (draft 0); regenerated, never edited here.
+- [Contract template](contract-template.md) — copy per build.
+
 ### Reference
 - [README](../README.md) — run, client config, curl smoke test.
 
