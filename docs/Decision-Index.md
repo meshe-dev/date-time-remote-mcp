@@ -18,6 +18,7 @@ source: decision-log.md
 | D-008 | 2026-09-09 16:48 PDT | claude | The tool reports whatever abbreviation IANA gives `America/Vancouver`; from 2026-11-01 that is `MST`, and the contract's winter rows are amended accordingly |
 | D-009 | 2026-09-09 17:03 PDT | meshe | The abbreviation is whatever `ZoneInfo("America/Vancouver")` returns for the supplied datetime |
 | D-010 | 2026-09-10 12:40 PDT | meshe | This repo's swarm runs on the `swarm-core` plugin (swarm-core@0.1.1, swarm-builder D-007/D-008); the gate roles and playbooks are the plugin's, the project section in `docs/swarm.md` is what this repo owns |
+| F-006 | 2026-09-10 13:01 PDT | claude | The tzdata 2026b floor is now asserted in two places, and both assertions are proven able to fail |
 | F-004 | 2026-09-09 16:48 PDT | claude | IANA tzdata 2026b moves `America/Vancouver` to permanent UTC−7 labelled `MST` from 2026-11-01 02:00; both the host and the `python:3.13-slim` image carry it |
 | F-003 | 2026-09-09 16:40 PDT | claude | `mcp[cli]>=1.9.0` now resolves to mcp 2.2.0, which removes `mcp.server.fastmcp`; an unpinned rebuild of the image would crash at import |
 | F-001 | 2026-09-09 16:27 PDT | claude | The server hardcodes UTC−7 and the literal "PDT", so from November to March it reports Pacific *Daylight* time while the wall clock is Pacific *Standard* |
@@ -29,4 +30,4 @@ source: decision-log.md
 | O-004 | 2026-09-09 16:27 PDT | gate: meshe | Is this repo a dashboard KB source (`kb_*` MCP, wiki page)? Not asked at adoption; if yes, the log is reachable through `decision_get` once registered |
 | O-005 | 2026-09-09 16:33 PDT | gate: meshe | Ratify the swarm (D-006): roster, model assignment, the two test tiers, no headless lane, push/merge policy — or change any of it |
 | O-006 | 2026-09-09 16:48 PDT | gate: meshe, before the O-001 deploy **Label half closed 2026-09-09 17:03 PDT — D-009 (IANA abbreviation as built); rename still open** | Tool name `get_current_datetime_pdt` and the client key `datetime-pdt` are now doubly misleading: the output is `PST` in past winters and `MST` from 2026-11-01 (D-008) |
-| O-007 | 2026-09-09 16:48 PDT | gate: a future contract | mcp 2.x migration (F-003): `FastMCP` → `MCPServer` per the SDK migration guide, once the `<2` pin is no longer wanted |
+| O-007 | 2026-09-09 16:48 PDT | gate: a future contract **tzdata half closed 2026-09-10 13:01 PDT — F-006 (issue #1, branch `fix/1`, asserted in the integration tier and in the image build); the mcp 2.x half stays open** | mcp 2.x migration (F-003): `FastMCP` → `MCPServer` per the SDK migration guide, once the `<2` pin is no longer wanted |

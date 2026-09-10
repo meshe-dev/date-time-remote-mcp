@@ -16,6 +16,8 @@ Saturday April 04, 2026 06:11pm PDT
 
 ## Quick Start
 
+> **tzdata floor:** `America/Vancouver` is permanent UTC-07:00 labelled `MST` from 2026-11-01, but only under IANA tzdata **2026b or newer** — older data renders it as `PST`/UTC-08:00 for winter 2026. The image build asserts the floor (it fails to build on a stale base), and `tests/integration/test_tzdata.py` asserts it for the host running the tests.
+
 ### Docker Compose (recommended)
 
 ```bash
